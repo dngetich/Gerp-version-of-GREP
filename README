@@ -1,0 +1,71 @@
+1. Title
+        Gerp - phase 2
+        David Ngetich
+        COMP15
+
+2. Purpose
+
+        The purpose of this project was to implement a version of the GREP  program that indexes and searches a file tree of directories for subdirectories and files for strings. For me I achieved this by implementing a hash table to index and store the contents of a directory.
+
+3. Acknowledgements
+
+    COMP15 TAs and Prof. Laney Strange
+
+4. Files 
+
+        stringProcessing.h: 
+          - header file for stringProcessing.cpp
+          - Contains various string manipulation functions
+    
+
+        stringProcessing.cpp: 
+           - string manipulation functions
+
+        DirNode.h and DirNode.cpp: 
+            - Directory node in a FSTree
+
+
+        FSTree.h and FSTree.cpp: 
+            - File System tree for a directory
+
+        Gerp.cpp: 
+            - Simulator for the gerp query
+            - It traverses through all the files and subdirectories to create a file system tree. It then inserts every word from the tree into a HashTable and allows the user to query specific words.Simulates the gerp
+
+        Gerp.h: 
+            -  Header file for Gerp.cpp
+
+        HashTable.h: 
+            - Header file for HashTable.cpp
+
+        HashTable.cpp: 
+            -Full implementation of a hash table based off chaining
+            method
+            -hTable.cpp
+            -Purpose:contains the implementation of the HashTable with the  insert, search, expand, and the print functions for the hashtable.
+
+        main.cpp: 
+            - Instantiates a gerp object and runs the main simulation.
+
+        Makefile:
+            - Compiles and creates an executable
+
+
+6. Data Structures & Algorithms used
+
+    I used a hash table as the main data structure for this program. Hash tables are used to implement an associative array. It is a structure that can map keys to values. Therefore, it is extremely efficient to look up values in a hash table. SO if we are trying to query a word from an array, the data structure that would make the most sense to use would be a hash table. In a well dimensioned hash table, the average cost for each lookup is independent of the number of elements stored in a table. Therefore, if we are trying to query a string in a massive table, the efficiency of it is O(1).
+
+    I used the chaining method to tackle the collisions resulting from hashing the strings into the hash table. 
+
+
+5.  How Program works
+
+    HashTable contains an implementation of a hash table based off the
+    chaining method. Gerp has an instance of the HashTable to facilitate all of the files in a FSTree to be inserted into the hash table. Each node in the HashTable contains a FileNode struct which is Linkedlist of the words and the word's location and a pointer to the next node. Once all of the words in the FSTree have been inserted into the HashTable and the index built, the user can query words based off the search function in HashTable.
+
+7. Testing Cases
+
+    I tested the HashTable.cpp class with testHashTable.cpp. This class implemented a hash table and inserted and searched for values to make sure it was implemented properly. I coud not provid the testHashTable.cpp because it could not compile in the last minute and I could not figure out beofe the deadline. 
+
+    I also ran diff to test the desired output implementation and my implementatio. If the diff command outputted nothing, then my
+    implementation worked as it should.
